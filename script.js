@@ -24,10 +24,9 @@ window.addEventListener('load', function() {
         formSections.forEach((section, index) => {
             const isActive = index + 1 === step;
             section.classList.toggle('active', isActive);
-            // NEW: Autofocus on the first input of the new section
             if (isActive) {
                 const firstInput = section.querySelector('input, .custom-select-trigger, textarea');
-                if (firstInput) setTimeout(() => firstInput.focus(), 500); // Delay for animation
+                if (firstInput) setTimeout(() => firstInput.focus(), 500);
             }
         });
         const progressPercentage = ((step - 1) / (formSections.length - 1)) * 100;
@@ -46,7 +45,6 @@ window.addEventListener('load', function() {
         }
     }
 
-    // ... (handleValidation, setupLiveValidation, validateStep functions remain the same) ...
     function handleValidation(input) { if (input.checkValidity()) { input.classList.remove('is-invalid'); input.classList.add('is-valid'); } else { input.classList.remove('is-valid'); input.classList.add('is-invalid'); } }
     function setupLiveValidation() { const inputs = form.querySelectorAll('input[required], textarea[required]'); inputs.forEach(input => { input.addEventListener('input', () => handleValidation(input)); input.addEventListener('blur', () => handleValidation(input)); }); }
     function validateStep(step) { let isSectionValid = true; const currentSection = document.getElementById(`section-${step}`); if (!currentSection) return false; const inputs = currentSection.querySelectorAll('input[required], select[required], textarea[required]'); for (let input of inputs) { if (input.tagName === 'SELECT' && input.style.display === 'none') { const customTrigger = input.previousElementSibling.querySelector('.custom-select-trigger'); if (!input.value) { isSectionValid = false; customTrigger.classList.add('is-invalid'); } else { customTrigger.classList.remove('is-invalid'); } } else if (input.type === 'radio') { const radioGroup = document.querySelector(`input[name="${input.name}"]:checked`); if (!radioGroup) { isSectionValid = false; } } else { handleValidation(input); if (!input.checkValidity()) { isSectionValid = false; } } } return isSectionValid; }
@@ -65,21 +63,19 @@ window.addEventListener('load', function() {
         }
     }
 
-    // NEW: Keyboard Navigation
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Enter' && !(event.target.tagName === 'TEXTAREA')) {
-            event.preventDefault(); // Stop default form submission
+            event.preventDefault();
             const activeSection = document.querySelector('.form-section.active');
             const submitButton = activeSection.querySelector('.submit-button');
             if (submitButton) {
-                submitButton.click(); // If on last page, submit
+                submitButton.click();
             } else {
-                window.nextStep(); // Otherwise, go to next step
+                window.nextStep();
             }
         }
     });
 
-    // NEW: Live Dossier Update Function
     function updateDossier() {
         const formData = new FormData(form);
         let html = '';
@@ -110,10 +106,9 @@ window.addEventListener('load', function() {
         dossierStatus.textContent = hasData ? "DATA RECEIVED" : "AWAITING INPUT";
     }
 
-    // NEW: Attach listener to form
     form.addEventListener('input', updateDossier);
     
-    // --- UPDATED FORM SUBMISSION LOGIC TO SEND JSON ---
+    // --- V4: FINAL FORM SUBMISSION LOGIC WITH FULL DESCRIPTIONS ---
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -122,35 +117,58 @@ window.addEventListener('load', function() {
             const submitButton = this.querySelector('.submit-button');
             const formFeedback = document.getElementById('form-feedback');
             const webhookUrl = form.action;
-
-            // 1. Manually create a JSON object from the form data
-            const formData = new FormData(form);
             const jsonObject = {};
+
+            // 1. Get all standard text inputs and textareas first
+            const formData = new FormData(form);
             formData.forEach((value, key) => {
-                // If a key already exists, it's from a checkbox group, so we create an array
-                if (jsonObject.hasOwnProperty(key)) {
-                    if (!Array.isArray(jsonObject[key])) {
-                        // Convert the existing single value to an array
-                        jsonObject[key] = [jsonObject[key]];
-                    }
-                    jsonObject[key].push(value);
-                } else {
-                    // Otherwise, it's a single value
+                if (!form.querySelector(`[name="${key}"]`).type?.includes('checkbox')) {
                     jsonObject[key] = value;
                 }
             });
+
+            // 2. Manually get the FULL TEXT for the industry dropdown
+            const industrySelect = document.getElementById('industry');
+            if (industrySelect && industrySelect.selectedIndex > 0) {
+                jsonObject['industry'] = industrySelect.options[industrySelect.selectedIndex].text;
+            } else {
+                jsonObject['industry'] = "";
+            }
+
+            // 3. Manually get FULL TEXT and DESCRIPTION for all CHECKED checkboxes
+            const checkboxGroups = {};
+            const checkedCheckboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+            
+            checkedCheckboxes.forEach(checkbox => {
+                const name = checkbox.name;
+                const choiceItem = checkbox.closest('.choice-item');
+                const titleElement = choiceItem.querySelector('.choice-title');
+                const descriptionElement = choiceItem.querySelector('.choice-description');
+                
+                if (titleElement && descriptionElement) {
+                    // Combine the title and description text into one string
+                    const fullText = `${titleElement.textContent.trim()} - ${descriptionElement.textContent.trim()}`;
+                    
+                    if (!checkboxGroups[name]) {
+                        checkboxGroups[name] = [];
+                    }
+                    checkboxGroups[name].push(fullText);
+                }
+            });
+
+            Object.assign(jsonObject, checkboxGroups);
 
             submitButton.classList.add('is-loading');
             submitButton.disabled = true;
             formFeedback.textContent = '';
 
-            // 2. Send the request with the correct headers and stringified JSON body
+            // 4. Send the perfectly formatted JSON object
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(jsonObject) // Convert the object to a JSON string
+                body: JSON.stringify(jsonObject)
             }).then(response => {
                 if (response.ok) {
                     formFeedback.style.color = 'var(--text-color)';
@@ -226,7 +244,7 @@ window.addEventListener('load', function() {
 
     showStep(currentStep);
     setupLiveValidation();
-    updateDossier(); // Initial call
+    updateDossier();
 
     // --- SHADER INITIALIZATION ---
     const canvas = document.getElementById('shader-background'); 
