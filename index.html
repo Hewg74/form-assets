@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Research Initiator</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+    <canvas id="shader-background"></canvas>
+
+    <!-- This new wrapper isolates the form's layout from the canvas -->
+    <div class="form-wrapper">
+        <main class="form-container">
+<header>
+    <div>
+        <h1>Executive Research Initiator</h1>
+        <p>This form triggers the automated AI research workflow to build a comprehensive dossier on a new executive target.</p>
+    </div>
+    <div class="header-icon">
+        <img src="https://github.com/Hewg74/form-assets/blob/8c8751696f95742ffd578e1c3a884f605244a376/Generated%20Image%20September%2010,%202025%20-%2011_08PM.jpg?raw=true" id="header-icon-img" alt="Form Identity Icon">
+    </div>
+</header>
+
+        <!-- NEW: DYNAMIC PROGRESS BAR STRUCTURE -->
+        <div class="progress-indicator">
+            <div class="progress-labels">
+                <div class="progress-label active" data-step="1">Initiator</div>
+                <div class="progress-label" data-step="2">Parameters</div>
+                <div class="progress-label" data-step="3">Configuration</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
+
+	<form id="research-form" action="https://gene.app.n8n.cloud/webhook/8d1e21de-0208-408c-9999-f535b7b9d5ad" method="POST" novalidate>            
+            <section class="form-section active" id="section-1">
+                <h2>SECTION 1 OF 3 - INITIATOR</h2>
+                <div class="input-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="firstName" class="form-control" required>
+                </div>
+                <div class="input-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="lastName" class="form-control" required>
+                </div>
+                <div class="input-group">
+                    <label for="position">Position/Role *</label>
+                    <input type="text" id="position" name="position" class="form-control" required>
+                </div>
+                <div class="input-group">
+                    <label for="company">Company *</label>
+                    <input type="text" id="company" name="company" class="form-control" required>
+                </div>
+                <div class="input-group">
+                    <label for="client-email">Email *</label>
+                    <input type="email" id="client-email" name="Email" class="form-control" placeholder="Your email, where the final report will be sent." required>
+                </div>
+                <div class="form-navigation">
+                    <span style="flex-grow: 1;"></span>
+                    <button type="button" class="nav-button" onclick="nextStep()" style="width: auto;">Next &rarr;</button>
+                </div>
+            </section>
+            
+            <section class="form-section" id="section-2">
+                <h2>SECTION 2 OF 3 - PARAMETERS</h2>
+                 <div class="input-group">
+                    <label for="industry">Industry *</label>
+                    <div class="custom-select-wrapper">
+                        <div class="custom-select-trigger">Select an Industry...</div>
+                        <div class="custom-select-options">
+                            <!-- Options populated by JS -->
+                        </div>
+                    </div>
+                    <select id="industry" name="industry" required style="display: none;">
+                        <option value="" disabled selected>Select an Industry...</option>
+                        <!-- Full list of 966 options -->
+                        <option value="1">1-Agriculture, Forestry, And Fishing-Agricultural Production - Crops</option>
+                        <option value="111">111-Agriculture, Forestry, And Fishing-Wheat</option>
+                        <option value="112">112-Agriculture, Forestry, And Fishing-Rice</option>
+                        <option value="115">115-Agriculture, Forestry, And Fishing-Corn</option>
+                        <option value="116">116-Agriculture, Forestry, And Fishing-Soybeans</option>
+                        <option value="119">119-Agriculture, Forestry, And Fishing-Cash Grains, Nec</option>
+                        <option value="131">131-Agriculture, Forestry, And Fishing-Cotton</option>
+                        <option value="132">132-Agriculture, Forestry, And Fishing-Tobacco</option>
+                        <option value="133">133-Agriculture, Forestry, And Fishing-Sugarcane and Sugar Beets</option>
+                        <option value="134">134-Agriculture, Forestry, And Fishing-Irish Potatoes</option>
+                        <option value="139">139-Agriculture, Forestry, And Fishing-Field Crops, Except Cash Grain</option>
+                        <option value="161">161-Agriculture, Forestry, And Fishing-Vegetables and Melons</option>
+                        <option value="171">171-Agriculture, Forestry, And Fishing-Berry Crops</option>
+                        <option value="172">172-Agriculture, Forestry, And Fishing-Grapes</option>
+                        <option value="173">173-Agriculture, Forestry, And Fishing-Tree Nuts</option>
+                        <option value="174">174-Agriculture, Forestry, And Fishing-Citrus Fruits</option>
+                        <option value="175">175-Agriculture, Forestry, And Fishing-Deciduous Tree Fruits</option>
+                        <option value="179">179-Agriculture, Forestry, And Fishing-Fruits and Tree Nuts, Nec</option>
+                        <option value="181">181-Agriculture, Forestry, And Fishing-Ornamental Nursery Products</option>
+                        <option value="182">182-Agriculture, Forestry, And Fishing-Food Crops Grown Under Cover</option>
+                        <option value="191">191-Agriculture, Forestry, And Fishing-General Farms, Primarily Crop</option>
+                        <option value="2">2-Agriculture, Forestry, And Fishing-Agricultural Production - Livestock and Animal Specialties</option>
+                        <option value="211">211-Agriculture, Forestry, And Fishing-Beef Cattle Feedlots</option>
+                        <option value="212">212-Agriculture, Forestry, And Fishing-Beef Cattle, Except Feedlots</option>
+                        <option value="213">213-Agriculture, Forestry, And Fishing-Hogs</option>
+                        <option value="214">214-Agriculture, Forestry, And Fishing-Sheep and Goats</option>
+                        <option value="219">219-Agriculture, Forestry, And Fishing-General Livestock, Nec</option>
+                        <option value="241">241-Agriculture, Forestry, And Fishing-Dairy Farms</option>
+                        <option value="251">251-Agriculture, Forestry, And Fishing-Broiler, Fryer, and Roaster Chickens</option>
+                        <option value="252">252-Agriculture, Forestry, And Fishing-Chicken Eggs</option>
+                        <option value="253">253-Agriculture, Forestry, And Fishing-Turkeys and Turkey Eggs</option>
+                        <option value="254">254-Agriculture, Forestry, And Fishing-Poultry Hatcheries</option>
+                        <option value="259">259-Agriculture, Forestry, And Fishing-Poultry and Eggs, Nec</option>
+                        <option value="271">271-Agriculture, Forestry, And Fishing-Fur-bearing Animals and Rabbits</option>
+                        <option value="272">272-Agriculture, Forestry, And Fishing-Horses and Other Equines</option>
+                        <option value="273">273-Agriculture, Forestry, And Fishing-Animal Aquaculture</option>
+                        <option value="279">279-Agriculture, Forestry, And Fishing-Animal Specialties, Nec</option>
+                        <option value="291">291-Agriculture, Forestry, And Fishing-General Farms, Primarily animals</option>
+                        <option value="7">7-Agriculture, Forestry, And Fishing-Agricultural Services</option>
+                        <option value="711">711-Agriculture, Forestry, And Fishing-Soil Preparation Services</option>
+                        <option value="721">721-Agriculture, Forestry, And Fishing-Crop Planting and Protection</option>
+                        <option value="722">722-Agriculture, Forestry, And Fishing-Crop Harvesting</option>
+                        <option value="723">723-Agriculture, Forestry, And Fishing-Crop Preparation Services For Market</option>
+                        <option value="724">724-Agriculture, Forestry, And Fishing-Cotton Ginning</option>
+                        <option value="741">741-Agriculture, Forestry, And Fishing-Veterinary Services For Livestock</option>
+                        <option value="742">742-Agriculture, Forestry, And Fishing-Veterinary Services, Specialties</option>
+                        <option value="751">751-Agriculture, Forestry, And Fishing-Livestock Services, Except Veterinary</option>
+                        <option value="752">752-Agriculture, Forestry, And Fishing-Animal Specialty Services</option>
+                        <option value="761">761-Agriculture, Forestry, And Fishing-Farm Labor Contractors</option>
+                        <option value="762">762-Agriculture, Forestry, And Fishing-Farm Management Services</option>
+                        <option value="781">781-Agriculture, Forestry, And Fishing-Landscape Counseling and Planning</option>
+                        <option value="782">782-Agriculture, Forestry, And Fishing-Lawn and Garden Services</option>
+                        <option value="783">783-Agriculture, Forestry, And Fishing-Ornamental Shrub and Tree Services</option>
+                        <option value="8">8-Agriculture, Forestry, And Fishing-Forestry</option>
+                        <option value="811">811-Agriculture, Forestry, And Fishing-Timber Tracts</option>
+                        <option value="831">831-Agriculture, Forestry, And Fishing-Forest Products</option>
+                        <option value="851">851-Agriculture, Forestry, And Fishing-Forestry Services</option>
+                        <option value="9">9-Agriculture, Forestry, And Fishing-Fishing, Hunting and Trapping</option>
+                        <option value="10">10-Mining-Metal Mining</option>
+                        <option value="1011">1011-Mining-Iron Ores</option>
+                        <option value="1021">1021-Mining-Copper Ores</option>
+                        <option value="1031">1031-Mining-Lead and Zinc Ores</option>
+                        <option value="1041">1041-Mining-Gold Ores</option>
+                        <option value="1044">1044-Mining-Silver Ores</option>
+                        <option value="1061">1061-Mining-Ferroalloy Ores, Except Vanadium</option>
+                        <option value="1081">1081-Mining-Metal Mining Services</option>
+                        <option value="1094">1094-Mining-Uranium-radium-vanadium Ores</option>
+                        <option value="1099">1099-Mining-Metal Ores, Nec</option>
+                        <option value="12">12-Mining-Coal Mining</option>
+                        <option value="1221">1221-Mining-Bituminous Coal and Lignite-surface Mining</option>
+                        <option value="1222">1222-Mining-Bituminous Coal-underground Mining</option>
+                        <option value="1231">1231-Mining-Anthracite Mining</option>
+                        <option value="1241">1241-Mining-Coal Mining Services</option>
+                        <option value="13">13-Mining-Oil and Gas Extraction</option>
+                        <option value="1311">1311-Mining-Crude Petroleum and Natural Gas</option>
+                        <option value="1321">1321-Mining-Natural Gas Liquids</option>
+                        <option value="1381">1381-Mining-Drilling Oil and Gas Wells</option>
+                        <option value="1382">1382-Mining-Oil and Gas Exploration Services</option>
+                        <option value="1389">1389-Mining-Oil and Gas Field Services, Nec</option>
+                        <option value="14">14-Mining-Mining and Quarrying of Nonmetallic Minerals, Except Fuels</option>
+                        <option value="15">15-Construction-Building Cnstrctn - General Contractors & Operative Builders</option>
+                        <option value="1521">1521-Construction-Single-family Housing Construction</option>
+                        <option value="1522">1522-Construction-Residential Construction, Nec</option>
+                        <option value="1531">1531-Construction-Operative Builders</option>
+                        <option value="1541">1541-Construction-Industrial Buildings and Warehouses</option>
+                        <option value="1542">1542-Construction-Nonresidential Construction, Nec</option>
+                        <option value="16">16-Construction-Heavy Cnstrctn, Except Building Construction - Contractors</option>
+                        <option value="1611">1611-Construction-Highway and Street Construction</option>
+                        <option value="1622">1622-Construction-Bridge, Tunnel, and Elevated Highway</option>
+                        <option value="1623">1623-Construction-Water, Sewer, and Utility Lines</option>
+                        <option value="1629">1629-Construction-Heavy Construction, Nec</option>
+                        <option value="17">17-Construction-Construction - Special Trade Contractors</option>
+                        <option value="20">20-Manufacturing-Food and Kindred Products</option>
+                        <option value="2011">2011-Manufacturing-Meat Packing Plants</option>
+                        <option value="2013">2013-Manufacturing-Sausages and Other Prepared Meats</option>
+                        <option value="2015">2015-Manufacturing-Poultry Slaughtering and Processing</option>
+                        <option value="2021">2021-Manufacturing-Creamery Butter</option>
+                        <option value="2022">2022-Manufacturing-Cheese; Natural and Processed</option>
+                        <option value="2023">2023-Manufacturing-Dry, Condensed, Evaporated Products</option>
+                        <option value="2024">2024-Manufacturing-Ice Cream and Frozen Desserts</option>
+                        <option value="2026">2026-Manufacturing-Fluid Milk</option>
+                        <option value="2032">2032-Manufacturing-Canned Specialties</option>
+                        <option value="2033">2033-Manufacturing-Canned Fruits and Specialties</option>
+                        <option value="2034">2034-Manufacturing-Dehydrated Fruits, Vegetables, Soups</option>
+                        <option value="2035">2035-Manufacturing-Pickles, Sauces, and Salad Dressings</option>
+                        <option value="2037">2037-Manufacturing-Frozen Fruits and Vegetables</option>
+                        <option value="2038">2038-Manufacturing-Frozen Specialties, Nec</option>
+                        <option value="2041">2041-Manufacturing-Flour and Other Grain Mill Products</option>
+                        <option value="2043">2043-Manufacturing-Cereal Breakfast Foods</option>
+                        <option value="2044">2044-Manufacturing-Rice Milling</option>
+                        <option value="2045">2045-Manufacturing-Prepared Flour Mixes and Doughs</option>
+                        <option value="2046">2046-Manufacturing-Wet Corn Milling</option>
+                        <option value="2047">2047-Manufacturing-Dog and Cat Food</option>
+                        <option value="2048">2048-Manufacturing-Prepared Feeds, Nec</option>
+                        <option value="2051">2051-Manufacturing-Bread, Cake, and Related Products</option>
+                        <option value="2052">2052-Manufacturing-Cookies and Crackers</option>
+                        <option value="2053">2053-Manufacturing-Frozen Bakery Products, Except Bread</option>
+                        <option value="2061">2061-Manufacturing-Raw Cane Sugar</option>
+                        <option value="2062">2062-Manufacturing-Cane Sugar Refining</option>
+                        <option value="2063">2063-Manufacturing-Beet Sugar</option>
+                        <option value="2064">2064-Manufacturing-Candy and Other Confectionery Products</option>
+                        <option value="2066">2066-Manufacturing-Chocolate and Cocoa Products</option>
+                        <option value="2067">2067-Manufacturing-Chewing Gum</option>
+                        <option value="2068">2068-Manufacturing-Salted and Roasted Nuts and Seeds</option>
+                        <option value="2074">2074-Manufacturing-Cottonseed Oil Mills</option>
+                        <option value="2075">2075-Manufacturing-Soybean Oil Mills</option>
+                        <option value="2076">2076-Manufacturing-Vegetable Oil Mills, Nec</option>
+                        <option value="2077">2077-Manufacturing-Animal and Marine Fats and Oils</option>
+                        <option value="2079">2079-Manufacturing-Edible Fats and Oils</option>
+                        <option value="2082">2082-Manufacturing-Malt Beverages</option>
+                        <option value="2083">2083-Manufacturing-Malt</option>
+                        <option value="2084">2084-Manufacturing-Wines, Brandy, and Brandy Spirits</option>
+                        <option value="2085">2085-Manufacturing-Distilled and Blended Liquors</option>
+                        <option value="2086">2086-Manufacturing-Bottled and Canned Soft Drinks</option>
+                        <option value="2087">2087-Manufacturing-Flavoring Extracts and Syrups, Nec</option>
+                        <option value="2091">2091-Manufacturing-Canned and Cured Fish and Seafoods</option>
+                        <option value="2092">2092-Manufacturing-Fresh or Frozen Packaged Fish</option>
+                        <option value="2095">2095-Manufacturing-Roasted Coffee</option>
+                        <option value="2096">2096-Manufacturing-Potato Chips and Similar Snacks</option>
+                        <option value="2097">2097-Manufacturing-Manufactured Ice</option>
+                        <option value="2098">2098-Manufacturing-Macaroni and Spaghetti</option>
+                        <option value="2099">2099-Manufacturing-Food Preparations, Nec</option>
+                        <option value="21">21-Manufacturing-Tobacco Products</option>
+                        <option value="2111">2111-Manufacturing-Cigarettes</option>
+                        <option value="2121">2121-Manufacturing-Cigars</option>
+                        <option value="2131">2131-Manufacturing-Chewing and Smoking Tobacco</option>
+                        <option value="2141">2141-Manufacturing-Tobacco Stemming and Redrying</option>
+                        <option value="22">22-Manufacturing-Textile Mill Products</option>
+                        <option value="2211">2211-Manufacturing-Broadwoven Fabric Mills, Cotton</option>
+                        <option value="2221">2221-Manufacturing-Broadwoven Fabric Mills, Manmade</option>
+                        <option value="2231">2231-Manufacturing-Broadwoven Fabric Mills, Wool</option>
+                        <option value="2241">2241-Manufacturing-Narrow Fabric Mills</option>
+                        <option value="2251">2251-Manufacturing-Womens Hosiery, Except Socks</option>
+                        <option value="2252">2252-Manufacturing-Hosiery, Nec</option>
+                        <option value="2253">2253-Manufacturing-Knit Outerwear Mills</option>
+                        <option value="2254">2254-Manufacturing-Knit Underwear Mills</option>
+                        <option value="2257">2257-Manufacturing-Weft Knit Fabric Mills</option>
+                        <option value="2258">2258-Manufacturing-Lace and Warp Knit Fabric Mills</option>
+                        <option value="2259">2259-Manufacturing-Knitting Mills, Nec</option>
+                        <option value="2261">2261-Manufacturing-Finishing Plants, Cotton</option>
+                        <option value="2262">2262-Manufacturing-Finishing Plants, Manmade</option>
+                        <option value="2269">2269-Manufacturing-Finishing Plants, Nec</option>
+                        <option value="2273">2273-Manufacturing-Carpets and Rugs</option>
+                        <option value="2281">2281-Manufacturing-Yarn Spinning Mills</option>
+                        <option value="2282">2282-Manufacturing-Throwing and Winding Mills</option>
+                        <option value="2284">2284-Manufacturing-Thread Mills</option>
+                        <option value="2295">2295-Manufacturing-Coated Fabrics, Not Rubberized</option>
+                        <option value="2296">2296-Manufacturing-Tire Cord and Fabrics</option>
+                        <option value="2297">2297-Manufacturing-Nonwoven Fabrics</option>
+                        <option value="2298">2298-Manufacturing-Cordage and Twine</option>
+                        <option value="2299">2299-Manufacturing-Textile Goods, Nec</option>
+                        <option value="23">23-Manufacturing-Apparel, Finished Prdcts from Fabrics & Similar Materials</option>
+                        <option value="2311">2311-Manufacturing-Mens and Boys Suits and Coats</option>
+                        <option value="2321">2321-Manufacturing-Mens and Boys Furnishings</option>
+                        <option value="2322">2322-Manufacturing-Mens and Boys Underwear and Nightwear</option>
+                        <option value="2323">2323-Manufacturing-Mens and Boys Neckwear</option>
+                        <option value="2325">2325-Manufacturing-Mens and Boys Trousers and Slacks</option>
+                        <option value="2326">2326-Manufacturing-Mens and Boys Work Clothing</option>
+                        <option value="2329">2329-Manufacturing-Mens and Boys Clothing, Nec</option>
+                        <option value="2331">2331-Manufacturing-Womens and Misses Blouses and Shirts</option>
+                        <option value="2335">2335-Manufacturing-Womens, Juniors, and Misses Dresses</option>
+                        <option value="2337">2337-Manufacturing-Womens and Misses Suits and Coats</option>
+                        <option value="2339">2339-Manufacturing-Womens and Misses Outerwear, Nec</option>
+                        <option value="2341">2341-Manufacturing-Womens and Childrens Underwear</option>
+                        <option value="2342">2342-Manufacturing-Bras, Girdles, and Allied Garments</option>
+                        <option value="2353">2353-Manufacturing-Hats, Caps, and Millinery</option>
+                        <option value="2361">2361-Manufacturing-Girls and Childrens Dresses, Blouses</option>
+                        <option value="2369">2369-Manufacturing-Girls and Childrens Outerwear, Nec</option>
+                        <option value="2371">2371-Manufacturing-Fur Goods</option>
+                        <option value="2381">2381-Manufacturing-Fabric Dress and Work Gloves</option>
+                        <option value="2384">2384-Manufacturing-Robes and Dressing Gowns</option>
+                        <option value="2385">2385-Manufacturing-Waterproof Outerwear</option>
+                        <option value="2386">2386-Manufacturing-Leather and Sheep-lined Clothing</option>
+                        <option value="2387">2387-Manufacturing-Apparel Belts</option>
+                        <option value="2389">2389-Manufacturing-Apparel and Accessories, Nec</option>
+                        <option value="2391">2391-Manufacturing-Curtains and Draperies</option>
+                        <option value="2392">2392-Manufacturing-Household Furnishings, Nec</option>
+                        <option value="2393">2393-Manufacturing-Textile Bags</option>
+                        <option value="2394">2394-Manufacturing-Canvas and Related Products</option>
+                        <option value="2395">2395-Manufacturing-Pleating and Stitching</option>
+                        <option value="2396">2396-Manufacturing-Automotive and Apparel Trimmings</option>
+                        <option value="2397">2397-Manufacturing-Schiffli Machine Embroideries</option>
+                        <option value="2399">2399-Manufacturing-Fabricated Textile Products, Nec</option>
+                        <option value="24">24-Manufacturing-Lumber and Wood Products, Except Furniture</option>
+                        <option value="2411">2411-Manufacturing-Logging</option>
+                        <option value="2421">2421-Manufacturing-Sawmills and Planing Mills, General</option>
+                        <option value="2426">2426-Manufacturing-Hardwood Dimension and Flooring Mills</option>
+                        <option value="2429">2429-Manufacturing-Special Product Sawmills, Nec</option>
+                        <option value="2431">2431-Manufacturing-Millwork</option>
+                        <option value="2434">2434-Manufacturing-Wood Kitchen Cabinets</option>
+                        <option value="2435">2435-Manufacturing-Hardwood Veneer and Plywood</option>
+                        <option value="2436">2436-Manufacturing-Softwood Veneer and Plywood</option>
+                        <option value="2439">2439-Manufacturing-Structural Wood Members, Nec</option>
+                        <option value="2441">2441-Manufacturing-Nailed Wood Boxes and Shook</option>
+                        <option value="2448">2448-Manufacturing-Wood Pallets and Skids</option>
+                        <option value="2449">2449-Manufacturing-Wood Containers, Nec</option>
+                        <option value="2451">2451-Manufacturing-Mobile Homes</option>
+                        <option value="2452">2452-Manufacturing-Prefabricated Wood Buildings</option>
+                        <option value="2491">2491-Manufacturing-Wood Preserving</option>
+                        <option value="2493">2493-Manufacturing-Reconstituted Wood Products</option>
+                        <option value="2499">2499-Manufacturing-Wood Products, Nec</option>
+                        <option value="25">25-Manufacturing-Furniture and Fixtures</option>
+                        <option value="2511">2511-Manufacturing-Wood Household Furniture</option>
+                        <option value="2512">2512-Manufacturing-Upholstered Household Furniture</option>
+                        <option value="2514">2514-Manufacturing-Metal Household Furniture</option>
+                        <option value="2515">2515-Manufacturing-Mattresses and Bedsprings</option>
+                        <option value="2517">2517-Manufacturing-Wood Television and Radio Cabinets</option>
+                        <option value="2519">2519-Manufacturing-Household Furniture, Nec</option>
+                        <option value="2521">2521-Manufacturing-Wood Office Furniture</option>
+                        <option value="2522">2522-Manufacturing-Office Furniture, Except Wood</option>
+                        <option value="2531">2531-Manufacturing-Public Building and Related Furniture</option>
+                        <option value="2541">2541-Manufacturing-Wood Partitions and Fixtures</option>
+                        <option value="2542">2542-Manufacturing-Partitions and Fixtures, Except Wood</option>
+                        <option value="2591">2591-Manufacturing-Drapery Hardware and Blinds and Shades</option>
+                        <option value="2599">2599-Manufacturing-Furniture and Fixtures, Nec</option>
+                        <option value="26">26-Manufacturing-Paper and Allied Products</option>
+                        <option value="2611">2611-Manufacturing-Pulp Mills</option>
+                        <option value="2621">2621-Manufacturing-Paper Mills</option>
+                        <option value="2631">2631-Manufacturing-Paperboard Mills</option>
+                        <option value="2652">2652-Manufacturing-Setup Paperboard Boxes</option>
+                        <option value="2653">2653-Manufacturing-Corrugated and Solid Fiber Boxes</option>
+                        <option value="2655">2655-Manufacturing-Fiber Cans, Drums, and Similar Products</option>
+                        <option value="2656">2656-Manufacturing-Sanitary Food Containers</option>
+                        <option value="2657">2657-Manufacturing-Folding Paperboard Boxes</option>
+                        <option value="2671">2671-Manufacturing-Paper; Coated and Laminated Packaging</option>
+                        <option value="2672">2672-Manufacturing-Paper; Coated and Laminated, Nec</option>
+                        <option value="2673">2673-Manufacturing-Bags: Plastic, Laminated, and Coated</option>
+                        <option value="2674">2674-Manufacturing-Bags: Uncoated Paper and Multiwall</option>
+                        <option value="2675">2675-Manufacturing-Die-cut Paper and Board</option>
+                        <option value="2676">2676-Manufacturing-Sanitary Paper Products</option>
+                        <option value="2677">2677-Manufacturing-Envelopes</option>
+                        <option value="2678">2678-Manufacturing-Stationery Products</option>
+                        <option value="2679">2679-Manufacturing-Converted Paper Products, Nec</option>
+                        <option value="27">27-Manufacturing-Printing, Publishing and Allied Industries</option>
+                        <option value="2711">2711-Manufacturing-Newspapers</option>
+                        <option value="2721">2721-Manufacturing-Periodicals</option>
+                        <option value="2731">2731-Manufacturing-Book Publishing</option>
+                        <option value="2732">2732-Manufacturing-Book Printing</option>
+                        <option value="2741">2741-Manufacturing-Miscellaneous Publishing</option>
+                        <option value="2752">2752-Manufacturing-Commercial Printing, Lithographic</option>
+                        <option value="2754">2754-Manufacturing-Commercial Printing, Gravure</option>
+                        <option value="2759">2759-Manufacturing-Commercial Printing, Nec</option>
+                        <option value="2761">2761-Manufacturing-Manifold Business Forms</option>
+                        <option value="2771">2771-Manufacturing-Greeting Cards</option>
+                        <option value="2782">2782-Manufacturing-Blankbooks and Looseleaf Binders</option>
+                        <option value="2789">2789-Manufacturing-Bookbinding and Related Work</option>
+                        <option value="2791">2791-Manufacturing-Typesetting</option>
+                        <option value="2796">2796-Manufacturing-Platemaking Services</option>
+                        <option value="28">28-Manufacturing-Chemicals and Allied Products</option>
+                        <option value="2812">2812-Manufacturing-Alkalies and Chlorine</option>
+                        <option value="2813">2813-Manufacturing-Industrial Gases</option>
+                        <option value="2816">2816-Manufacturing-Inorganic Pigments</option>
+                        <option value="2819">2819-Manufacturing-Industrial Inorganic Chemicals, Nec</option>
+                        <option value="2821">2821-Manufacturing-Plastics Materials and Resins</option>
+                        <option value="2822">2822-Manufacturing-Synthetic Rubber</option>
+                        <option value="2823">2823-Manufacturing-Cellulosic Manmade Fibers</option>
+                        <option value="2824">2824-Manufacturing-Organic Fibers, Noncellulosic</option>
+                        <option value="2833">2833-Manufacturing-Medicinals and Botanicals</option>
+                        <option value="2834">2834-Manufacturing-Pharmaceutical Preparations</option>
+                        <option value="2835">2835-Manufacturing-Diagnostic Substances</option>
+                        <option value="2836">2836-Manufacturing-Biological Products, Except Diagnostic</option>
+                        <option value="2841">2841-Manufacturing-Soap and Other Detergents</option>
+                        <option value="2842">2842-Manufacturing-Polishes and Sanitation Goods</option>
+                        <option value="2843">2843-Manufacturing-Surface Active Agents</option>
+                        <option value="2844">2844-Manufacturing-Toilet Preparations</option>
+                        <option value="2851">2851-Manufacturing-Paints and Allied Products</option>
+                        <option value="2861">2861-Manufacturing-Gum and Wood Chemicals</option>
+                        <option value="2865">2865-Manufacturing-Cyclic Crudes and Intermediates</option>
+                        <option value="2869">2869-Manufacturing-Industrial Organic Chemicals, Nec</option>
+                        <option value="2873">2873-Manufacturing-Nitrogenous Fertilizers</option>
+                        <option value="2874">2874-Manufacturing-Phosphatic Fertilizers</option>
+                        <option value="2875">2875-Manufacturing-Fertilizers, Mixing Only</option>
+                        <option value="2879">2879-Manufacturing-Agricultural Chemicals, Nec</option>
+                        <option value="2891">2891-Manufacturing-Adhesives and Sealants</option>
+                        <option value="2892">2892-Manufacturing-Explosives</option>
+                        <option value="2893">2893-Manufacturing-Printing Ink</option>
+                        <option value="2895">2895-Manufacturing-Carbon Black</option>
+                        <option value="2899">2899-Manufacturing-Chemical Preparations, Nec</option>
+                        <option value="29">29-Manufacturing-Petroleum Refining and Related Industries</option>
+                        <option value="2911">2911-Manufacturing-Petroleum Refining</option>
+                        <option value="2951">2951-Manufacturing-Asphalt Paving Mixtures and Blocks</option>
+                        <option value="2952">2952-Manufacturing-Asphalt Felts and Coatings</option>
+                        <option value="2992">2992-Manufacturing-Lubricating Oils and Greases</option>
+                        <option value="2999">2999-Manufacturing-Petroleum and Coal Products, Nec</option>
+                        <option value="30">30-Manufacturing-Rubber and Miscellaneous Plastic Products</option>
+                        <option value="3011">3011-Manufacturing-Tires and Inner Tubes</option>
+                        <option value="3021">3021-Manufacturing-Rubber and Plastics Footwear</option>
+                        <option value="3052">3052-Manufacturing-Rubber and Plastics Hose and Beltings</option>
+                        <option value="3053">3053-Manufacturing-Gaskets; Packing and Sealing Devices</option>
+                        <option value="3061">3061-Manufacturing-Mechanical Rubber Goods</option>
+                        <option value="3069">3069-Manufacturing-Fabricated Rubber Products, Nec</option>
+                        <option value="3081">3081-Manufacturing-Unsupported Plastics Film and Sheet</option>
+                        <option value="3082">3082-Manufacturing-Unsupported Plastics Profile Shapes</option>
+                        <option value="3083">3083-Manufacturing-Laminated Plastics Plate and Sheet</option>
+                        <option value="3084">3084-Manufacturing-Plastics Pipe</option>
+                        <option value="3085">3085-Manufacturing-Plastics Bottles</option>
+                        <option value="3086">3086-Manufacturing-Plastics Foam Products</option>
+                        <option value="3087">3087-Manufacturing-Custom Compound Purchased Resins</option>
+                        <option value="3088">3088-Manufacturing-Plastics Plumbing Fixtures</option>
+                        <option value="3089">3089-Manufacturing-Plastics Products, Nec</option>
+                        <option value="31">31-Manufacturing-Leather and Leather Products</option>
+                        <option value="3111">3111-Manufacturing-Leather Tanning and Finishing</option>
+                        <option value="3131">3131-Manufacturing-Footwear Cut Stock</option>
+                        <option value="3142">3142-Manufacturing-House Slippers</option>
+                        <option value="3143">3143-Manufacturing-Men's Footwear, Except athletic</option>
+                        <option value="3144">3144-Manufacturing-Womens Footwear, Except athletic</option>
+                        <option value="3149">3149-Manufacturing-Footwear, Except Rubber, Nec</option>
+                        <option value="3151">3151-Manufacturing-Leather Gloves and Mittens</option>
+                        <option value="3161">3161-Manufacturing-Luggage</option>
+                        <option value="3171">3171-Manufacturing-Womens Handbags and Purses</option>
+                        <option value="3172">3172-Manufacturing-Personal Leather Goods, Nec</option>
+                        <option value="3199">3199-Manufacturing-Leather Goods, Nec</option>
+                        <option value="32">32-Manufacturing-Stone, Clay, Glass, and Concrete Products</option>
+                        <option value="3211">3211-Manufacturing-Flat Glass</option>
+                        <option value="3221">3221-Manufacturing-Glass Containers</option>
+                        <option value="3229">3229-Manufacturing-Pressed and Blown Glass, Nec</option>
+                        <option value="3231">3231-Manufacturing-Products of Purchased Glass</option>
+                        <option value="3241">3241-Manufacturing-Cement, Hydraulic</option>
+                        <option value="3251">3251-Manufacturing-Brick and Structural Clay Tile</option>
+                        <option value="3253">3253-Manufacturing-Ceramic Wall and Floor Tile</option>
+                        <option value="3255">3255-Manufacturing-Clay Refractories</option>
+                        <option value="3259">3259-Manufacturing-Structural Clay Products, Nec</option>
+                        <option value="3261">3261-Manufacturing-Vitreous Plumbing Fixtures</option>
+                        <option value="3262">3262-Manufacturing-Vitreous China Table and Kitchenware</option>
+                        <option value="3263">3263-Manufacturing-Semivitreous Table and Kitchenware</option>
+                        <option value="3264">3264-Manufacturing-Porcelain Electrical Supplies</option>
+                        <option value="3269">3269-Manufacturing-Pottery Products, Nec</option>
+                        <option value="3271">3271-Manufacturing-Concrete Block and Brick</option>
+                        <option value="3272">3272-Manufacturing-Concrete Products, Nec</option>
+                        <option value="3273">3273-Manufacturing-Ready-mixed Concrete</option>
+                        <option value="3274">3274-Manufacturing-Lime</option>
+                        <option value="3275">3275-Manufacturing-Gypsum Products</option>
+                        <option value="3281">3281-Manufacturing-Cut Stone and Stone Products</option>
+                        <option value="3291">3291-Manufacturing-Abrasive Products</option>
+                        <option value="3292">3292-Manufacturing-Asbestos Products</option>
+                        <option value="3295">3295-Manufacturing-Minerals, Ground or Treated</option>
+                        <option value="3296">3296-Manufacturing-Mineral Wool</option>
+                        <option value="3297">3297-Manufacturing-Nonclay Refractories</option>
+                        <option value="3299">3299-Manufacturing-Nonmetallic Mineral Products,</option>
+                        <option value="33">33-Manufacturing-Primary Metal Industries</option>
+                        <option value="3312">3312-Manufacturing-Blast Furnaces and Steel Mills</option>
+                        <option value="3313">3313-Manufacturing-Electrometallurgical Products</option>
+                        <option value="3315">3315-Manufacturing-Steel Wire and Related Products</option>
+                        <option value="3316">3316-Manufacturing-Cold Finishing of Steel Shapes</option>
+                        <option value="3317">3317-Manufacturing-Steel Pipe and Tubes</option>
+                        <option value="3321">3321-Manufacturing-Gray and Ductile Iron Foundries</option>
+                        <option value="3322">3322-Manufacturing-Malleable Iron Foundries</option>
+                        <option value="3324">3324-Manufacturing-Steel Investment Foundries</option>
+                        <option value="3325">3325-Manufacturing-Steel Foundries, Nec</option>
+                        <option value="3331">3331-Manufacturing-Primary Copper</option>
+                        <option value="3334">3334-Manufacturing-Primary Aluminum</option>
+                        <option value="3339">3339-Manufacturing-Primary Nonferrous Metals, Nec</option>
+                        <option value="3341">3341-Manufacturing-Secondary Nonferrous Metals</option>
+                        <option value="3351">3351-Manufacturing-Copper Rolling and Drawing</option>
+                        <option value="3353">3353-Manufacturing-Aluminum Sheet, Plate, and Foil</option>
+                        <option value="3354">3354-Manufacturing-Aluminum Extruded Products</option>
+                        <option value="3355">3355-Manufacturing-Aluminum Rolling and Drawing, Nec</option>
+                        <option value="3356">3356-Manufacturing-Nonferrous Rolling and Drawing, Nec</option>
+                        <option value="3357">3357-Manufacturing-Nonferrous Wiredrawing and Insulating</option>
+                        <option value="3363">3363-Manufacturing-Aluminum Die-castings</option>
+                        <option value="3364">3364-Manufacturing-Nonferrous Die-castings Except Aluminum</option>
+                        <option value="3365">3365-Manufacturing-Aluminum Foundries</option>
+                        <option value="3366">3366-Manufacturing-Copper Foundries</option>
+                        <option value="3369">3369-Manufacturing-Nonferrous Foundries, Nec</option>
+                        <option value="3398">3398-Manufacturing-Metal Heat Treating</option>
+                        <option value="3399">3399-Manufacturing-Primary Metal Products</option>
+                        <option value="34">34-Manufacturing-Fabricated Metal Prdcts, Except Machinery & Transport Eqpmnt</option>
+                        <option value="3411">3411-Manufacturing-Metal Cans</option>
+                        <option value="3412">3412-Manufacturing-Metal Barrels, Drums, and Pails</option>
+                        <option value="3421">3421-Manufacturing-Cutlery</option>
+                        <option value="3423">3423-Manufacturing-Hand and Edge Tools, Nec</option>
+                        <option value="3425">3425-Manufacturing-Saw Blades and Handsaws</option>
+                        <option value="3429">3429-Manufacturing-Hardware, Nec</option>
+                        <option value="3431">3431-Manufacturing-Metal Sanitary Ware</option>
+                        <option value="3432">3432-Manufacturing-Plumbing Fixture Fittings and Trim</option>
+                        <option value="3433">3433-Manufacturing-Heating Equipment, Except Electric</option>
+                        <option value="3441">3441-Manufacturing-Fabricated Structural Metal</option>
+                        <option value="3442">3442-Manufacturing-Metal Doors, Sash, and Trim</option>
+                        <option value="3443">3443-Manufacturing-Fabricated Plate Work (boiler Shop)</option>
+                        <option value="3444">3444-Manufacturing-Sheet Metalwork</option>
+                        <option value="3446">3446-Manufacturing-Architectural Metalwork</option>
+                        <option value="3448">3448-Manufacturing-Prefabricated Metal Buildings</option>
+                        <option value="3449">3449-Manufacturing-Miscellaneous Metalwork</option>
+                        <option value="3451">3451-Manufacturing-Screw Machine Products</option>
+                        <option value="3452">3452-Manufacturing-Bolts, Nuts, Rivets, and Washers</option>
+                        <option value="3462">3462-Manufacturing-Iron and Steel Forgings</option>
+                        <option value="3463">3463-Manufacturing-Nonferrous Forgings</option>
+                        <option value="3465">3465-Manufacturing-Automotive Stampings</option>
+                        <option value="3466">3466-Manufacturing-Crowns and Closures</option>
+                        <option value="3469">3469-Manufacturing-Metal Stampings, Nec</option>
+                        <option value="3471">3471-Manufacturing-Plating and Polishing</option>
+                        <option value="3479">3479-Manufacturing-Metal Coating and Allied Services</option>
+                        <option value="3482">3482-Manufacturing-Small Arms Ammunition</option>
+                        <option value="3483">3483-Manufacturing-Ammunition, Except For Small Arms, Nec</option>
+                        <option value="3484">3484-Manufacturing-Small Arms</option>
+                        <option value="3489">3489-Manufacturing-Ordnance and Accessories, Nec</option>
+                        <option value="3491">3491-Manufacturing-Industrial Valves</option>
+                        <option value="3492">3492-Manufacturing-Fluid Power Valves and Hose Fittings</option>
+                        <option value="3493">3493-Manufacturing-Steel Springs, Except Wire</option>
+                        <option value="3494">3494-Manufacturing-Valves and Pipe Fittings, Nec</option>
+                        <option value="3495">3495-Manufacturing-Wire Springs</option>
+                        <option value="3496">3496-Manufacturing-Miscellaneous Fabricated Wire Products</option>
+                        <option value="3497">3497-Manufacturing-Metal Foil and Leaf</option>
+                        <option value="3498">3498-Manufacturing-Fabricated Pipe and Fittings</option>
+                        <option value="3499">3499-Manufacturing-Fabricated Metal Products, Nec</option>
+                        <option value="35">35-Manufacturing-Industrial and Commercial Machinery and Computer Equipment</option>
+                        <option value="3511">3511-Manufacturing-Turbines and Turbine Generator Sets</option>
+                        <option value="3519">3519-Manufacturing-Internal Combustion Engines, Nec</option>
+                        <option value="3523">3523-Manufacturing-Farm Machinery and Equipment</option>
+                        <option value="3524">3524-Manufacturing-Lawn and Garden Equipment</option>
+                        <option value="3531">3531-Manufacturing-Construction Machinery</option>
+                        <option value="3532">3532-Manufacturing-Mining Machinery</option>
+                        <option value="3533">3533-Manufacturing-Oil and Gas Field Machinery</option>
+                        <option value="3534">3534-Manufacturing-Elevators and Moving Stairways</option>
+                        <option value="3535">3535-Manufacturing-Conveyors and Conveying Equipment</option>
+                        <option value="3536">3536-Manufacturing-Hoists, Cranes, and Monorails</option>
+                        <option value="3537">3537-Manufacturing-Industrial Trucks and Tractors</option>
+                        <option value="3541">3541-Manufacturing-Machine Tools, Metal Cutting Type</option>
+                        <option value="3542">3542-Manufacturing-Machine Tools, Metal Forming Type</option>
+                        <option value="3543">3543-Manufacturing-Industrial Patterns</option>
+                        <option value="3544">3544-Manufacturing-Special Dies, Tools, Jigs, and Fixtures</option>
+                        <option value="3545">3545-Manufacturing-Machine Tool Accessories</option>
+                        <option value="3546">3546-Manufacturing-Power-driven Handtools</option>
+                        <option value="3547">3547-Manufacturing-Rolling Mill Machinery</option>
+                        <option value="3548">3548-Manufacturing-Welding Apparatus</option>
+                        <option value="3549">3549-Manufacturing-Metalworking Machinery, Nec</option>
+                        <option value="3552">3552-Manufacturing-Textile Machinery</option>
+                        <option value="3553">3553-Manufacturing-Woodworking Machinery</option>
+                        <option value="3554">3554-Manufacturing-Paper Industries Machinery</option>
+                        <option value="3555">3555-Manufacturing-Printing Trades Machinery</option>
+                        <option value="3556">3556-Manufacturing-Food Products Machinery</option>
+                        <option value="3559">3559-Manufacturing-Special Industry Machinery, Nec</option>
+                        <option value="3561">3561-Manufacturing-Pumps and Pumping Equipment</option>
+                        <option value="3562">3562-Manufacturing-Ball and Roller Bearings</option>
+                        <option value="3563">3563-Manufacturing-Air and Gas Compressors</option>
+                        <option value="3564">3564-Manufacturing-Blowers and Fans</option>
+                        <option value="3565">3565-Manufacturing-Packaging Machinery</option>
+                        <option value="3566">3566-Manufacturing-Speed Changers, Drives, and Gears</option>
+                        <option value="3567">3567-Manufacturing-Industrial Furnaces and Ovens</option>
+                        <option value="3568">3568-Manufacturing-Power Transmission Equipment, Nec</option>
+                        <option value="3569">3569-Manufacturing-General Industrial Machinery,</option>
+                        <option value="3571">3571-Manufacturing-Electronic Computers</option>
+                        <option value="3572">3572-Manufacturing-Computer Storage Devices</option>
+                        <option value="3575">3575-Manufacturing-Computer Terminals</option>
+                        <option value="3577">3577-Manufacturing-Computer Peripheral Equipment, Nec</option>
+                        <option value="3578">3578-Manufacturing-Calculating and Accounting Equipment</option>
+                        <option value="3579">3579-Manufacturing-Office Machines, Nec</option>
+                        <option value="3581">3581-Manufacturing-Automatic Vending Machines</option>
+                        <option value="3582">3582-Manufacturing-Commercial Laundry Equipment</option>
+                        <option value="3585">3585-Manufacturing-Refrigeration and Heating Equipment</option>
+                        <option value="3586">3586-Manufacturing-Measuring and Dispensing Pumps</option>
+                        <option value="3589">3589-Manufacturing-Service Industry Machinery, Nec</option>
+                        <option value="3592">3592-Manufacturing-Carburetors, Pistons, Rings, Valves</option>
+                        <option value="3593">3593-Manufacturing-Fluid Power Cylinders and Actuators</option>
+                        <option value="3594">3594-Manufacturing-Fluid Power Pumps and Motors</option>
+                        <option value="3596">3596-Manufacturing-Scales and Balances, Except Laboratory</option>
+                        <option value="3599">3599-Manufacturing-Industrial Machinery, Nec</option>
+                        <option value="36">36-Manufacturing-Electronic, Elctrcl Eqpmnt & Cmpnts, Excpt Computer Eqpmnt</option>
+                        <option value="3612">3612-Manufacturing-Power, Distribution and Specialty Transformers</option>
+                        <option value="3613">3613-Manufacturing-Switchgear and Switchboard Apparatus</option>
+                        <option value="3621">3621-Manufacturing-Motors and Generators</option>
+                        <option value="3624">3624-Manufacturing-Carbon and Graphite Products</option>
+                        <option value="3625">3625-Manufacturing-Relays and Industrial Controls</option>
+                        <option value="3629">3629-Manufacturing-Electrical Industrial Apparatus</option>
+                        <option value="3631">3631-Manufacturing-Household Cooking Equipment</option>
+                        <option value="3632">3632-Manufacturing-Household Refrigerators and Freezers</option>
+                        <option value="3633">3633-Manufacturing-Household Laundry Equipment</option>
+                        <option value="3634">3634-Manufacturing-Electric Housewares and Fans</option>
+                        <option value="3635">3635-Manufacturing-Household Vacuum Cleaners</option>
+                        <option value="3639">3639-Manufacturing-Household Appliances, Nec</option>
+                        <option value="3641">3641-Manufacturing-Electric Lamps</option>
+                        <option value="3643">3643-Manufacturing-Current-carrying Wiring Devices</option>
+                        <option value="3644">3644-Manufacturing-Noncurrent-carrying Wiring Devices</option>
+                        <option value="3645">3645-Manufacturing-Residential Lighting Fixtures</option>
+                        <option value="3646">3646-Manufacturing-Commercial Lighting Fixtures</option>
+                        <option value="3647">3647-Manufacturing-Vehicular Lighting Equipment</option>
+                        <option value="3648">3648-Manufacturing-Lighting Equipment, Nec</option>
+                        <option value="3651">3651-Manufacturing-Household Audio and Video Equipment</option>
+                        <option value="3652">3652-Manufacturing-Prerecorded Records and Tapes</option>
+                        <option value="3661">3661-Manufacturing-Telephone and Telegraph Apparatus</option>
+                        <option value="3663">3663-Manufacturing-Radio and T.v. Communications Equipment</option>
+                        <option value="3669">3669-Manufacturing-Communications Equipment, Nec</option>
+                        <option value="3671">3671-Manufacturing-Electron Tubes</option>
+                        <option value="3672">3672-Manufacturing-Printed Circuit Boards</option>
+                        <option value="3674">3674-Manufacturing-Semiconductors and Related Devices</option>
+                        <option value="3675">3675-Manufacturing-Electronic Capacitors</option>
+                        <option value="3676">3676-Manufacturing-Electronic Resistors</option>
+                        <option value="3677">3677-Manufacturing-Electronic Coils and Transformers</option>
+                        <option value="3678">3678-Manufacturing-Electronic Connectors</option>
+                        <option value="3679">3679-Manufacturing-Electronic Components, Nec</option>
+                        <option value="3691">3691-Manufacturing-Storage Batteries</option>
+                        <option value="3692">3692-Manufacturing-Primary Batteries, Dry and Wet</option>
+                        <option value="3694">3694-Manufacturing-Engine Electrical Equipment</option>
+                        <option value="3695">3695-Manufacturing-Magnetic and Optical Recording Media</option>
+                        <option value="3699">3699-Manufacturing-Electrical Equipment and Supplies, Nec</option>
+                        <option value="37">37-Manufacturing-Transportation Equipment</option>
+                        <option value="3711">3711-Manufacturing-Motor Vehicles and Car Bodies</option>
+                        <option value="3713">3713-Manufacturing-Truck and Bus Bodies</option>
+                        <option value="3714">3714-Manufacturing-Motor Vehicle Parts and Accessories</option>
+                        <option value="3715">3715-Manufacturing-Truck Trailers</option>
+                        <option value="3716">3716-Manufacturing-Motor Homes</option>
+                        <option value="3721">3721-Manufacturing-Aircraft</option>
+                        <option value="3724">3724-Manufacturing-Aircraft Engines and Engine Parts</option>
+                        <option value="3728">3728-Manufacturing-Aircraft Parts and Equipment, Nec</option>
+                        <option value="3731">3731-Manufacturing-Shipbuilding and Repairing</option>
+                        <option value="3732">3732-Manufacturing-Boatbuilding and Repairing</option>
+                        <option value="3743">3743-Manufacturing-Railroad Equipment</option>
+                        <option value="3751">3751-Manufacturing-Motorcycles, Bicycles, and Parts</option>
+                        <option value="3761">3761-Manufacturing-Guided Missiles and Space Vehicles</option>
+                        <option value="3764">3764-Manufacturing-Space Propulsion Units and Parts</option>
+                        <option value="3769">3769-Manufacturing-Space Vehicle Equipment, Nec</option>
+                        <option value="3792">3792-Manufacturing-Travel Trailers and Campers</option>
+                        <option value="3795">3795-Manufacturing-Tanks and Tank Components</option>
+                        <option value="3799">3799-Manufacturing-Transportation Equipment, Nec</option>
+                        <option value="38">38-Manufacturing-Mesr/Anlyz/Cntrl Instrmnts; Photo/Med/Opt Gds; Watchs/Clocks</option>
+                        <option value="3812">3812-Manufacturing-Search and Navigation Equipment</option>
+                        <option value="3821">3821-Manufacturing-Laboratory Apparatus and Furniture</option>
+                        <option value="3822">3822-Manufacturing-Environmental Controls</option>
+                        <option value="3823">3823-Manufacturing-Process Control Instruments</option>
+                        <option value="3824">3824-Manufacturing-Fluid Meters and Counting Devices</option>
+                        <option value="3825">3825-Manufacturing-Instruments To Measure Electricity</option>
+                        <option value="3826">3826-Manufacturing-Analytical Instruments</option>
+                        <option value="3827">3827-Manufacturing-Optical Instruments and Lenses</option>
+                        <option value="3829">3829-Manufacturing-Measuring and Controlling Devices, Nec</option>
+                        <option value="3841">3841-Manufacturing-Surgical and Medical Instruments</option>
+                        <option value="3842">3842-Manufacturing-Surgical Appliances and Supplies</option>
+                        <option value="3843">3843-Manufacturing-Dental Equipment and Supplies</option>
+                        <option value="3844">3844-Manufacturing-X-ray Apparatus and Tubes</option>
+                        <option value="3845">3845-Manufacturing-Electromedical Equipment</option>
+                        <option value="3851">3851-Manufacturing-Ophthalmic Goods</option>
+                        <option value="3861">3861-Manufacturing-Photographic Equipment and Supplies</option>
+                        <option value="3873">3873-Manufacturing-Watches, Clocks, Watchcases, and Parts</option>
+                        <option value="39">39-Manufacturing-Miscellaneous Manufacturing Industries</option>
+                        <option value="40">40-Transportation, Communications, Electric, Gas, And Sanitary Services-Railroad Transportation</option>
+                        <option value="4011">4011-Transportation, Communications, Electric, Gas, And Sanitary Services-Railroads, Line-haul Operating</option>
+                        <option value="4013">4013-Transportation, Communications, Electric, Gas, And Sanitary Services-Switching and Terminal Services</option>
+                        <option value="41">41-Transportation, Communications, Electric, Gas, And Sanitary Services-Local, Suburban Transit & Interurbn Hgwy Passenger Transport</option>
+                        <option value="4111">4111-Transportation, Communications, Electric, Gas, And Sanitary Services-Local and Suburban Transit</option>
+                        <option value="4119">4119-Transportation, Communications, Electric, Gas, And Sanitary Services-Local Passenger Transportation, Nec</option>
+                        <option value="4121">4121-Transportation, Communications, Electric, Gas, And Sanitary Services-Taxicabs</option>
+                        <option value="4131">4131-Transportation, Communications, Electric, Gas, And Sanitary Services-Intercity and Rural Bus Transportation</option>
+                        <option value="4141">4141-Transportation, Communications, Electric, Gas, And Sanitary Services-Local Bus Charter Service</option>
+                        <option value="4142">4142-Transportation, Communications, Electric, Gas, And Sanitary Services-Bus Charter Service, Except Local</option>
+                        <option value="4151">4151-Transportation, Communications, Electric, Gas, And Sanitary Services-School Buses</option>
+                        <option value="4173">4173-Transportation, Communications, Electric, Gas, And Sanitary Services-Bus Terminal and Service Facilities</option>
+                        <option value="42">42-Transportation, Communications, Electric, Gas, And Sanitary Services-Motor Freight Transportation</option>
+                        <option value="4212">4212-Transportation, Communications, Electric, Gas, And Sanitary Services-Local Trucking, Without Storage</option>
+                        <option value="4213">4213-Transportation, Communications, Electric, Gas, And Sanitary Services-Trucking, Except Local</option>
+                        <option value="4214">4214-Transportation, Communications, Electric, Gas, And Sanitary Services-Local Trucking With Storage</option>
+                        <option value="4215">4215-Transportation, Communications, Electric, Gas, And Sanitary Services-Courier Services, Except By Air</option>
+                        <option value="4221">4221-Transportation, Communications, Electric, Gas, And Sanitary Services-Farm Product Warehousing and Storage</option>
+                        <option value="4222">4222-Transportation, Communications, Electric, Gas, And Sanitary Services-Refrigerated Warehousing and Storage</option>
+                        <option value="4225">4225-Transportation, Communications, Electric, Gas, And Sanitary Services-General Warehousing and Storage</option>
+                        <option value="4226">4226-Transportation, Communications, Electric, Gas, And Sanitary Services-Special Warehousing and Storage, Nec</option>
+                        <option value="4231">4231-Transportation, Communications, Electric, Gas, And Sanitary Services-Trucking Terminal Facilities</option>
+                        <option value="43">43-Transportation, Communications, Electric, Gas, And Sanitary Services-United States Postal Service</option>
+                        <option value="4311">4311-Transportation, Communications, Electric, Gas, And Sanitary Services-U.S. Postal Service</option>
+                        <option value="44">44-Transportation, Communications, Electric, Gas, And Sanitary Services-Water Transportation</option>
+                        <option value="4412">4412-Transportation, Communications, Electric, Gas, And Sanitary Services-Deep Sea Foreign Transportation of Freight</option>
+                        <option value="4424">4424-Transportation, Communications, Electric, Gas, And Sanitary Services-Deep Sea Domestic Transportation of Freight</option>
+                        <option value="4432">4432-Transportation, Communications, Electric, Gas, And Sanitary Services-Freight Transportation On The Great Lakes</option>
+                        <option value="4449">4449-Transportation, Communications, Electric, Gas, And Sanitary Services-Water Transportation of Freight</option>
+                        <option value="4481">4481-Transportation, Communications, Electric, Gas, And Sanitary Services-Deep Sea Passenger Transportation, Except Ferry</option>
+                        <option value="4482">4482-Transportation, Communications, Electric, Gas, And Sanitary Services-Ferries</option>
+                        <option value="4489">4489-Transportation, Communications, Electric, Gas, And Sanitary Services-Water Passenger Transportation</option>
+                        <option value="4491">4491-Transportation, Communications, Electric, Gas, And Sanitary Services-Marine Cargo Handling</option>
+                        <option value="4492">4492-Transportation, Communications, Electric, Gas, And Sanitary Services-Towing and Tugboat Service</option>
+                        <option value="4493">4493-Transportation, Communications, Electric, Gas, And Sanitary Services-Marinas</option>
+                        <option value="4499">4499-Transportation, Communications, Electric, Gas, And Sanitary Services-Water Transportation Services, Nec</option>
+                        <option value="45">45-Transportation, Communications, Electric, Gas, And Sanitary Services-Transportation by Air</option>
+                        <option value="4512">4512-Transportation, Communications, Electric, Gas, And Sanitary Services-Air Transportation, Scheduled</option>
+                        <option value="4513">4513-Transportation, Communications, Electric, Gas, And Sanitary Services-Air Courier Services</option>
+                        <option value="4522">4522-Transportation, Communications, Electric, Gas, And Sanitary Services-Air Transportation, Nonscheduled</option>
+                        <option value="4581">4581-Transportation, Communications, Electric, Gas, And Sanitary Services-Airports, Flying Fields, and Services</option>
+                        <option value="46">46-Transportation, Communications, Electric, Gas, And Sanitary Services-Pipelines, Except Natural Gas</option>
+                        <option value="4612">4612-Transportation, Communications, Electric, Gas, And Sanitary Services-Crude Petroleum Pipelines</option>
+                        <option value="4613">4613-Transportation, Communications, Electric, Gas, And Sanitary Services-Refined Petroleum Pipelines</option>
+                        <option value="4619">4619-Transportation, Communications, Electric, Gas, And Sanitary Services-Pipelines, Nec</option>
+                        <option value="47">47-Transportation, Communications, Electric, Gas, And Sanitary Services-Transportation Services</option>
+                        <option value="4724">4724-Transportation, Communications, Electric, Gas, And Sanitary Services-Travel Agencies</option>
+                        <option value="4725">4725-Transportation, Communications, Electric, Gas, And Sanitary Services-Tour Operators</option>
+                        <option value="4729">4729-Transportation, Communications, Electric, Gas, And Sanitary Services-Passenger Transportation Arrangement</option>
+                        <option value="4731">4731-Transportation, Communications, Electric, Gas, And Sanitary Services-Freight Transportation Arrangement</option>
+                        <option value="4741">4741-Transportation, Communications, Electric, Gas, And Sanitary Services-Rental of Railroad Cars</option>
+                        <option value="4783">4783-Transportation, Communications, Electric, Gas, And Sanitary Services-Packing and Crating</option>
+                        <option value="4785">4785-Transportation, Communications, Electric, Gas, And Sanitary Services-Inspection and Fixed Facilities</option>
+                        <option value="4789">4789-Transportation, Communications, Electric, Gas, And Sanitary Services-Transportation Services, Nec</option>
+                        <option value="48">48-Transportation, Communications, Electric, Gas, And Sanitary Services-Communications</option>
+                        <option value="4812">4812-Transportation, Communications, Electric, Gas, And Sanitary Services-Radiotelephone Communication</option>
+                        <option value="4813">4813-Transportation, Communications, Electric, Gas, And Sanitary Services-Telephone Communication, Except Radio</option>
+                        <option value="4822">4822-Transportation, Communications, Electric, Gas, And Sanitary Services-Telegraph and Other Communications</option>
+                        <option value="4832">4832-Transportation, Communications, Electric, Gas, And Sanitary Services-Radio Broadcasting Stations</option>
+                        <option value="4833">4833-Transportation, Communications, Electric, Gas, And Sanitary Services-Television Broadcasting Stations</option>
+                        <option value="4841">4841-Transportation, Communications, Electric, Gas, And Sanitary Services-Cable and Other Pay Television Services</option>
+                        <option value="4899">4899-Transportation, Communications, Electric, Gas, And Sanitary Services-Communication Services, Nec</option>
+                        <option value="49">49-Transportation, Communications, Electric, Gas, And Sanitary Services-Electric, Gas and Sanitary Services Only</option>
+                        <option value="50">50-Wholesale Trade-Wholesale Trade - Durable Goods</option>
+                        <option value="5012">5012-Wholesale Trade-Automobiles and Other Motor Vehicles</option>
+                        <option value="5013">5013-Wholesale Trade-Motor Vehicle Supplies and New Parts</option>
+                        <option value="5014">5014-Wholesale Trade-Tires and Tubes</option>
+                        <option value="5015">5015-Wholesale Trade-Motor Vehicle Parts, Used</option>
+                        <option value="5021">5021-Wholesale Trade-Furniture</option>
+                        <option value="5023">5023-Wholesale Trade-Homefurnishings</option>
+                        <option value="5031">5031-Wholesale Trade-Lumber, Plywood, and Millwork</option>
+                        <option value="5032">5032-Wholesale Trade-Brick, Stone, and Related Material</option>
+                        <option value="5033">5033-Wholesale Trade-Roofing, Siding, and Insulation</option>
+                        <option value="5039">5039-Wholesale Trade-Construction Materials, Nec</option>
+                        <option value="5044">5044-Wholesale Trade-Office Equipment</option>
+                        <option value="5045">5045-Wholesale Trade-Computers, Peripherals, and Software</option>
+                        <option value="5046">5046-Wholesale Trade-Commercial Equipment, Nec</option>
+                        <option value="5047">5047-Wholesale Trade-Medical and Hospital Equipment</option>
+                        <option value="5049">5049-Wholesale Trade-Professional Equipment, Nec</option>
+                        <option value="5051">5051-Wholesale Trade-Metals Service Centers and Offices</option>
+                        <option value="5052">5052-Wholesale Trade-Coal and Other Minerals and Ores</option>
+                        <option value="5063">5063-Wholesale Trade-Electrical Apparatus and Equipment</option>
+                        <option value="5064">5064-Wholesale Trade-Electrical Appliances, Television and Radio</option>
+                        <option value="5065">5065-Wholesale Trade-Electronic Parts and Equipment, Nec</option>
+                        <option value="5072">5072-Wholesale Trade-Hardware</option>
+                        <option value="5074">5074-Wholesale Trade-Plumbing and Hydronic Heating Supplies</option>
+                        <option value="5075">5075-Wholesale Trade-Warm Air Heating and Air Conditioning</option>
+                        <option value="5078">5078-Wholesale Trade-Refrigeration Equipment and Supplies</option>
+                        <option value="5082">5082-Wholesale Trade-Construction and Mining Machinery</option>
+                        <option value="5083">5083-Wholesale Trade-Farm and Garden Machinery</option>
+                        <option value="5084">5084-Wholesale Trade-Industrial Machinery and Equipment</option>
+                        <option value="5085">5085-Wholesale Trade-Industrial Supplies</option>
+                        <option value="5087">5087-Wholesale Trade-Service Establishment Equipment</option>
+                        <option value="5088">5088-Wholesale Trade-Transportation Equipment and Supplies</option>
+                        <option value="5091">5091-Wholesale Trade-Sporting and Recreation Goods</option>
+                        <option value="5092">5092-Wholesale Trade-Toys and Hobby Goods and Supplies</option>
+                        <option value="5093">5093-Wholesale Trade-Scrap and Waste Materials</option>
+                        <option value="5094">5094-Wholesale Trade-Jewelry and Precious Stones</option>
+                        <option value="5099">5099-Wholesale Trade-Durable Goods, Nec</option>
+                        <option value="51">51-Wholesale Trade-Wholesale Trade - Nondurable Goods</option>
+                        <option value="52">52-Retail Trade-Building Matrials, Hrdwr, Garden Supply & Mobile Home Dealrs</option>
+                        <option value="5211">5211-Retail Trade-Lumber and Other Building Materials</option>
+                        <option value="5231">5231-Retail Trade-Paint, Glass, and Wallpaper Stores</option>
+                        <option value="5251">5251-Retail Trade-Hardware Stores</option>
+                        <option value="5261">5261-Retail Trade-Retail Nurseries and Garden Stores</option>
+                        <option value="5271">5271-Retail Trade-Mobile Home Dealers</option>
+                        <option value="53">53-Retail Trade-General Merchandise Stores</option>
+                        <option value="5311">5311-Retail Trade-Department Stores</option>
+                        <option value="5331">5331-Retail Trade-Variety Stores</option>
+                        <option value="5399">5399-Retail Trade-Miscellaneous General Merchandise</option>
+                        <option value="54">54-Retail Trade-Food Stores</option>
+                        <option value="5411">5411-Retail Trade-Grocery Stores</option>
+                        <option value="5421">5421-Retail Trade-Meat and Fish Markets</option>
+                        <option value="5431">5431-Retail Trade-Fruit and Vegetable Markets</option>
+                        <option value="5441">5441-Retail Trade-Candy, Nut, and Confectionery Stores</option>
+                        <option value="5451">5451-Retail Trade-Dairy Products Stores</option>
+                        <option value="5461">5461-Retail Trade-Retail Bakeries</option>
+                        <option value="5499">5499-Retail Trade-Miscellaneous Food Stores</option>
+                        <option value="55">55-Retail Trade-Automotive Dealers and Gasoline Service Stations</option>
+                        <option value="5511">5511-Retail Trade-New and Used Car Dealers</option>
+                        <option value="5521">5521-Retail Trade-Used Car Dealers</option>
+                        <option value="5531">5531-Retail Trade-Auto and Home Supply Stores</option>
+                        <option value="5541">5541-Retail Trade-Gasoline Service Stations</option>
+                        <option value="5551">5551-Retail Trade-Boat Dealers</option>
+                        <option value="5561">5561-Retail Trade-Recreational Vehicle Dealers</option>
+                        <option value="5571">5571-Retail Trade-Motorcycle Dealers</option>
+                        <option value="5599">5599-Retail Trade-Automotive Dealers, Nec</option>
+                        <option value="56">56-Retail Trade-Apparel and Accessory Stores</option>
+                        <option value="5611">5611-Retail Trade-Mens and Boys Clothing Stores</option>
+                        <option value="5621">5621-Retail Trade-Womens Clothing Stores</option>
+                        <option value="5632">5632-Retail Trade-Womens Accessory and Specialty Stores</option>
+                        <option value="5641">5641-Retail Trade-Children's and Infants' Wear Stores</option>
+                        <option value="5651">5651-Retail Trade-Family Clothing Stores</option>
+                        <option value="5661">5661-Retail Trade-Shoe Stores</option>
+                        <option value="5699">5699-Retail Trade-Miscellaneous Apparel and Accessories</option>
+                        <option value="57">57-Retail Trade-Home Furniture, Furnishings and Equipment Stores</option>
+                        <option value="5712">5712-Retail Trade-Furniture Stores</option>
+                        <option value="5713">5713-Retail Trade-Floor Covering Stores</option>
+                        <option value="5714">5714-Retail Trade-Drapery and Upholstery Stores</option>
+                        <option value="5719">5719-Retail Trade-Miscellaneous Homefurnishings</option>
+                        <option value="5722">5722-Retail Trade-Household Appliance Stores</option>
+                        <option value="5731">5731-Retail Trade-Radio, Television, and Electronic Stores</option>
+                        <option value="5734">5734-Retail Trade-Computer and Software Stores</option>
+                        <option value="5735">5735-Retail Trade-Record and Prerecorded Tape Stores</option>
+                        <option value="5736">5736-Retail Trade-Musical Instrument Stores</option>
+                        <option value="58">58-Retail Trade-Eating and Drinking Places</option>
+                        <option value="5812">5812-Retail Trade-Eating Places</option>
+                        <option value="5813">5813-Retail Trade-Drinking Places</option>
+                        <option value="59">59-Retail Trade-Miscellaneous Retail</option>
+                        <option value="60">60-Finance, Insurance, And Real Estate-Depository Institutions</option>
+                        <option value="6011">6011-Finance, Insurance, And Real Estate-Federal Reserve Banks</option>
+                        <option value="6019">6019-Finance, Insurance, And Real Estate-Central Reserve Depository, Nec</option>
+                        <option value="6021">6021-Finance, Insurance, And Real Estate-National Commercial Banks</option>
+                        <option value="6022">6022-Finance, Insurance, And Real Estate-State Commercial Banks</option>
+                        <option value="6029">6029-Finance, Insurance, And Real Estate-Commercial Banks, Nec</option>
+                        <option value="6035">6035-Finance, Insurance, And Real Estate-Federal Savings Institutions</option>
+                        <option value="6036">6036-Finance, Insurance, And Real Estate-Savings Institutions, Except Federal</option>
+                        <option value="6061">6061-Finance, Insurance, And Real Estate-Federal Credit Unions</option>
+                        <option value="6062">6062-Finance, Insurance, And Real Estate-State Credit Unions</option>
+                        <option value="6081">6081-Finance, Insurance, And Real Estate-Foreign Bank and Branches and Agencies</option>
+                        <option value="6082">6082-Finance, Insurance, And Real Estate-Foreign Trade and International Banks</option>
+                        <option value="6091">6091-Finance, Insurance, And Real Estate-Nondeposit Trust Facilities</option>
+                        <option value="6099">6099-Finance, Insurance, And Real Estate-Functions Related To Depository Banking</option>
+                        <option value="61">61-Finance, Insurance, And Real Estate-Nondepository Credit Institutions</option>
+                        <option value="6111">6111-Finance, Insurance, And Real Estate-Federal and Federally Sponsored Credit</option>
+                        <option value="6141">6141-Finance, Insurance, And Real Estate-Personal Credit Institutions</option>
+                        <option value="6153">6153-Finance, Insurance, And Real Estate-Short-term Business Credit</option>
+                        <option value="6159">6159-Finance, Insurance, And Real Estate-Miscellaneous Business Credit</option>
+                        <option value="6162">6162-Finance, Insurance, And Real Estate-Mortgage Bankers and Correspondents</option>
+                        <option value="6163">6163-Finance, Insurance, And Real Estate-Loan Brokers</option>
+                        <option value="62">62-Finance, Insurance, And Real Estate-Security & Commodity Brokers, Dealers, Exchanges & Services</option>
+                        <option value="6211">6211-Finance, Insurance, And Real Estate-Security Brokers and Dealers</option>
+                        <option value="6221">6221-Finance, Insurance, And Real Estate-Commodity Contracts Brokers, Dealers</option>
+                        <option value="6231">6231-Finance, Insurance, And Real Estate-Security and Commodity Exchanges</option>
+                        <option value="6282">6282-Finance, Insurance, And Real Estate-Investment Advice</option>
+                        <option value="6289">6289-Finance, Insurance, And Real Estate-Security and Commodity Service</option>
+                        <option value="63">63-Finance, Insurance, And Real Estate-Insurance Carriers</option>
+                        <option value="6311">6311-Finance, Insurance, And Real Estate-Life Insurance</option>
+                        <option value="6321">6321-Finance, Insurance, And Real Estate-Accident and Health Insurance</option>
+                        <option value="6324">6324-Finance, Insurance, And Real Estate-Hospital and Medical Service Plans</option>
+                        <option value="6331">6331-Finance, Insurance, And Real Estate-Fire, Marine, and Casualty Insurance</option>
+                        <option value="6351">6351-Finance, Insurance, And Real Estate-Surety Insurance</option>
+                        <option value="6361">6361-Finance, Insurance, And Real Estate-Title Insurance</option>
+                        <option value="6371">6371-Finance, Insurance, And Real Estate-Pension, Health, and Welfare Funds</option>
+                        <option value="6399">6399-Finance, Insurance, And Real Estate-Insurance Carriers, Nec</option>
+                        <option value="64">64-Finance, Insurance, And Real Estate-Insurance Agents, Brokers and Service</option>
+                        <option value="6411">6411-Finance, Insurance, And Real Estate-Insurance Agents, Brokers, and Service</option>
+                        <option value="65">65-Finance, Insurance, And Real Estate-Real Estate</option>
+                        <option value="6512">6512-Finance, Insurance, And Real Estate-Nonresidential Building Operators</option>
+                        <option value="6513">6513-Finance, Insurance, And Real Estate-Apartment Building Operators</option>
+                        <option value="6514">6514-Finance, Insurance, And Real Estate-Dwelling Operators, Except Apartments</option>
+                        <option value="6515">6515-Finance, Insurance, And Real Estate-Mobile Home Site Operators</option>
+                        <option value="6517">6517-Finance, Insurance, And Real Estate-Railroad Property Lessors</option>
+                        <option value="6519">6519-Finance, Insurance, And Real Estate-Real Property Lessors, Nec</option>
+                        <option value="6531">6531-Finance, Insurance, And Real Estate-Real Estate Agents and Managers</option>
+                        <option value="6541">6541-Finance, Insurance, And Real Estate-Title abstract Offices</option>
+                        <option value="6552">6552-Finance, Insurance, And Real Estate-Subdividers and Developers, Nec</option>
+                        <option value="6553">6553-Finance, Insurance, And Real Estate-Cemetery Subdividers and Developers</option>
+                        <option value="67">67-Finance, Insurance, And Real Estate-Holding and Other Investment Offices</option>
+                        <option value="70">70-Services-Hotels, Rooming Houses, Camps, and Other Lodging Places</option>
+                        <option value="7011">7011-Services-Hotels and Motels</option>
+                        <option value="7021">7021-Services-Rooming and Boarding Houses</option>
+                        <option value="7032">7032-Services-Sporting and Recreational Camps</option>
+                        <option value="7033">7033-Services-Trailer Parks and Campsites</option>
+                        <option value="7041">7041-Services-Membership-basis Organization Hotels</option>
+                        <option value="72">72-Services-Personal Services</option>
+                        <option value="7211">7211-Services-Power Laundries, Family and Commercial</option>
+                        <option value="7212">7212-Services-Garment Pressing and Cleaners Agents</option>
+                        <option value="7213">7213-Services-Linen Supply</option>
+                        <option value="7215">7215-Services-Coin-operated Laundries and Cleaning</option>
+                        <option value="7216">7216-Services-Drycleaning Plants, Except Rugs</option>
+                        <option value="7217">7217-Services-Carpet and Upholstery Cleaning</option>
+                        <option value="7218">7218-Services-Industrial Launderers</option>
+                        <option value="7219">7219-Services-Laundry and Garment Services, Nec</option>
+                        <option value="7221">7221-Services-Photographic Studios, Portrait</option>
+                        <option value="7231">7231-Services-Beauty Shops</option>
+                        <option value="7241">7241-Services-Barber Shops</option>
+                        <option value="7251">7251-Services-Shoe Repair and Shoeshine Parlors</option>
+                        <option value="7261">7261-Services-Funeral Service and Crematories</option>
+                        <option value="7291">7291-Services-Tax Return Preparation Services</option>
+                        <option value="7299">7299-Services-Miscellaneous Personal Services</option>
+                        <option value="73">73-Services-Business Services</option>
+                        <option value="7311">7311-Services-Advertising Agencies</option>
+                        <option value="7312">7312-Services-Outdoor Advertising Services</option>
+                        <option value="7313">7313-Services-Radio, Television, Publisher Representatives</option>
+                        <option value="7319">7319-Services-Advertising, Nec</option>
+                        <option value="7322">7322-Services-Adjustment and Collection Services</option>
+                        <option value="7323">7323-Services-Credit Reporting Services</option>
+                        <option value="7331">7331-Services-Direct Mail Advertising Services</option>
+                        <option value="7334">7334-Services-Photocopying and Duplicating Services</option>
+                        <option value="7335">7335-Services-Commercial Photography</option>
+                        <option value="7336">7336-Services-Commercial Art and Graphic Design</option>
+                        <option value="7338">7338-Services-Secretarial and Court Reporting</option>
+                        <option value="7342">7342-Services-Disinfecting and Pest Control Services</option>
+                        <option value="7349">7349-Services-Building Maintenance Services, Nec</option>
+                        <option value="7352">7352-Services-Medical Equipment Rental</option>
+                        <option value="7353">7353-Services-Heavy Construction Equipment Rental</option>
+                        <option value="7359">7359-Services-Equipment Rental and Leasing, Nec</option>
+                        <option value="7361">7361-Services-Employment Agencies</option>
+                        <option value="7363">7363-Services-Help Supply Services</option>
+                        <option value="7371">7371-Services-Custom Computer Programming Services</option>
+                        <option value="7372">7372-Services-Prepackaged Software</option>
+                        <option value="7373">7373-Services-Computer Integrated Systems Design</option>
+                        <option value="7374">7374-Services-Data Processing and Preparation</option>
+                        <option value="7375">7375-Services-Information Retrieval Services</option>
+                        <option value="7376">7376-Services-Computer Facilities Management</option>
+                        <option value="7377">7377-Services-Computer Rental and Leasing</option>
+                        <option value="7378">7378-Services-Computer Maintenance and Repair</option>
+                        <option value="7379">7379-Services-Computer Related Services, Nec</option>
+                        <option value="7381">7381-Services-Detective and Armored Car Services</option>
+                        <option value="7382">7382-Services-Security Systems Services</option>
+                        <option value="7383">7383-Services-News Syndicates</option>
+                        <option value="7384">7384-Services-Photofinish Laboratories</option>
+                        <option value="7389">7389-Services-Business Services, Nec</option>
+                        <option value="75">75-Services-Automotive Repair, Services and Parking</option>
+                        <option value="7513">7513-Services-Truck Rental and Leasing, Without Drivers</option>
+                        <option value="7514">7514-Services-Passenger Car Rental</option>
+                        <option value="7515">7515-Services-Passenger Car Leasing</option>
+                        <option value="7519">7519-Services-Utility Trailer Rental</option>
+                        <option value="7521">7521-Services-Automobile Parking</option>
+                        <option value="7532">7532-Services-Top and Body Repair and Paint Shops</option>
+                        <option value="7533">7533-Services-Auto Exhaust System Repair Shops</option>
+                        <option value="7534">7534-Services-Tire Retreading and Repair Shops</option>
+                        <option value="7536">7536-Services-Automotive Glass Replacement Shops</option>
+                        <option value="7537">7537-Services-Automotive Transmission Repair Shops</option>
+                        <option value="7538">7538-Services-General Automotive Repair Shops</option>
+                        <option value="7539">7539-Services-Automotive Repair Shops, Nec</option>
+                        <option value="7542">7542-Services-Carwashes</option>
+                        <option value="7549">7549-Services-Automotive Services, Nec</option>
+                        <option value="76">76-Services-Miscellaneous Repair Services</option>
+                        <option value="7622">7622-Services-Radio and Television Repair</option>
+                        <option value="7623">7623-Services-Refrigeration Service and Repair</option>
+                        <option value="7629">7629-Services-Electrical Repair Shops</option>
+                        <option value="7631">7631-Services-Watch, Clock, and Jewelry Repair</option>
+                        <option value="7641">7641-Services-Reupholstery and Furniture Repair</option>
+                        <option value="7692">7692-Services-Welding Repair</option>
+                        <option value="7694">7694-Services-Armature Rewinding Shops</option>
+                        <option value="7699">7699-Services-Repair Services, Nec</option>
+                        <option value="78">78-Services-Motion Pictures</option>
+                        <option value="7812">7812-Services-Motion Picture and Video Production</option>
+                        <option value="7819">7819-Services-Services Allied To Motion Pictures</option>
+                        <option value="7822">7822-Services-Motion Picture and Tape Distribution</option>
+                        <option value="7829">7829-Services-Motion Picture Distribution Services</option>
+                        <option value="7832">7832-Services-Motion Picture Theaters, Except Drive-in</option>
+                        <option value="7833">7833-Services-Drive-in Motion Picture Theaters</option>
+                        <option value="7841">7841-Services-Video Tape Rental</option>
+                        <option value="79">79-Services-Amusement and Recreation Services</option>
+                        <option value="7911">7911-Services-Dance Studios, Schools, and Halls</option>
+                        <option value="7922">7922-Services-Theatrical Producers and Services</option>
+                        <option value="7929">7929-Services-Entertainers and Entertainment Groups</option>
+                        <option value="7933">7933-Services-Bowling Centers</option>
+                        <option value="7941">7941-Services-Sports Clubs, Managers, and Promoters</option>
+                        <option value="7948">7948-Services-Racing, Including Track Operation</option>
+                        <option value="7991">7991-Services-Physical Fitness Facilities</option>
+                        <option value="7992">7992-Services-Public Golf Courses</option>
+                        <option value="7993">7993-Services-Coin-operated Amusement Devices</option>
+                        <option value="7996">7996-Services-Amusement Parks</option>
+                        <option value="7997">7997-Services-Membership Sports and Recreation Clubs</option>
+                        <option value="7999">7999-Services-Amusement and Recreation, Nec</option>
+                        <option value="80">80-Services-Health Services</option>
+                        <option value="8011">8011-Services-Offices and Clinics of Medical Doctors</option>
+                        <option value="8021">8021-Services-Offices and Clinics of Dentists</option>
+                        <option value="8031">8031-Services-Offices and Clinics of Osteopathic Physicians</option>
+                        <option value="8041">8041-Services-Offices and Clinics of Chiropractors</option>
+                        <option value="8042">8042-Services-Offices and Clinics of Optometrists</option>
+                        <option value="8043">8043-Services-Offices and Clinics of Podiatrists</option>
+                        <option value="8049">8049-Services-Offices of Health Practitioner</option>
+                        <option value="8051">8051-Services-Skilled Nursing Care Facilities</option>
+                        <option value="8052">8052-Services-Intermediate Care Facilities</option>
+                        <option value="8059">8059-Services-Nursing and Personal Care, Nec</option>
+                        <option value="8062">8062-Services-General Medical and Surgical Hospitals</option>
+                        <option value="8063">8063-Services-Psychiatric Hospitals</option>
+                        <option value="8069">8069-Services-Specialty Hospitals, Except Psychiatric</option>
+                        <option value="8071">8071-Services-Medical Laboratories</option>
+                        <option value="8072">8072-Services-Dental Laboratories</option>
+                        <option value="8082">8082-Services-Home Health Care Services</option>
+                        <option value="8092">8092-Services-Kidney Dialysis Centers</option>
+                        <option value="8093">8093-Services-Specialty Outpatient Clinics, Nec</option>
+                        <option value="8099">8099-Services-Health and Allied Services, Nec</option>
+                        <option value="81">81-Services-Legal Services</option>
+                        <option value="82">82-Services-Educational Services</option>
+                        <option value="8211">8211-Services-Elementary and Secondary Schools</option>
+                        <option value="8221">8221-Services-Colleges and Universities</option>
+                        <option value="8222">8222-Services-Junior Colleges</option>
+                        <option value="8231">8231-Services-Libraries</option>
+                        <option value="8243">8243-Services-Data Processing Schools</option>
+                        <option value="8244">8244-Services-Business and Secretarial Schools</option>
+                        <option value="8249">8249-Services-Vocational Schools, Nec</option>
+                        <option value="8299">8299-Services-Schools and Educational Services</option>
+                        <option value="83">83-Services-Social Services</option>
+                        <option value="8322">8322-Services-Individual and Family Services</option>
+                        <option value="8331">8331-Services-Job Training and Related Services</option>
+                        <option value="8351">8351-Services-Child Day Care Services</option>
+                        <option value="8361">8361-Services-Residential Care</option>
+                        <option value="8399">8399-Services-Social Services, Nec</option>
+                        <option value="84">84-Services-Museums, Art Galleries and Botanical and Zoological Gardens</option>
+                        <option value="8412">8412-Services-Museums and Art Galleries</option>
+                        <option value="8422">8422-Services-Botanical and Zoological Gardens</option>
+                        <option value="86">86-Services-Membership Organizations</option>
+                        <option value="8611">8611-Services-Business Associations</option>
+                        <option value="8621">8621-Services-Professional Organizations</option>
+                        <option value="8631">8631-Services-Labor Organizations</option>
+                        <option value="8641">8641-Services-Civic and Social Associations</option>
+                        <option value="8651">8651-Services-Political Organizations</option>
+                        <option value="8661">8661-Services-Religious Organizations</option>
+                        <option value="8699">8699-Services-Membership Organizations, Nec</option>
+                        <option value="87">87-Services-Engineering, Accounting, Research, Management & Related Svcs</option>
+                        <option value="8711">8711-Services-Engineering Services</option>
+                        <option value="8712">8712-Services-Architectural Services</option>
+                        <option value="8713">8713-Services-Surveying Services</option>
+                        <option value="8721">8721-Services-Accounting, Auditing, and Bookkeeping</option>
+                        <option value="8731">8731-Services-Commercial Physical Research</option>
+                        <option value="8732">8732-Services-Commercial Nonphysical Research</option>
+                        <option value="8733">8733-Services-Noncommercial Research Organizations</option>
+                        <option value="8734">8734-Services-Testing Laboratories</option>
+                        <option value="8741">8741-Services-Management Services</option>
+                        <option value="8742">8742-Services-Management Consulting Services</option>
+                        <option value="8743">8743-Services-Public Relations Services</option>
+                        <option value="8744">8744-Services-Facilities Support Services</option>
+                        <option value="8748">8748-Services-Business Consulting, Nec</option>
+                        <option value="89">89-Services-Services, Not Elsewhere Classified</option>
+                        <option value="91">91-Public Administration-Executive, Legislative & General Government, Except Finance</option>
+                        <option value="9111">9111-Public Administration-Executive Offices</option>
+                        <option value="9121">9121-Public Administration-Legislative Bodies</option>
+                        <option value="9131">9131-Public Administration-Executive and Legislative Combined</option>
+                        <option value="9199">9199-Public Administration-General Government, Nec</option>
+                        <option value="92">92-Public Administration-Justice, Public Order and Safety</option>
+                        <option value="9211">9211-Public Administration-Courts</option>
+                        <option value="9221">9221-Public Administration-Police Protection</option>
+                        <option value="9222">9222-Public Administration-Legal Counsel and Prosecution</option>
+                        <option value="9223">9223-Public Administration-Correctional Institutions</option>
+                        <option value="9224">9224-Public Administration-Fire Protection</option>
+                        <option value="9229">9229-Public Administration-Public Order and Safety, Nec</option>
+                        <option value="93">93-Public Administration-Public Finance, Taxation and Monetary Policy</option>
+                        <option value="9311">9311-Public Administration-Finance, Taxation, and Monetary Policy</option>
+                        <option value="94">94-Public Administration-Administration of Human Resource Programs</option>
+                        <option value="9411">9411-Public Administration-Administration of Educational Programs</option>
+                        <option value="9431">9431-Public Administration-Administration of Public Health Programs</option>
+                        <option value="9441">9441-Public Administration-Administration of Social and Manpower Programs</option>
+                        <option value="9451">9451-Public Administration-Administration of Veterans Affairs</option>
+                        <option value="95">95-Public Administration-Administration of Environmental Quality and Housing Programs</option>
+                        <option value="9511">9511-Public Administration-Air, Water, and Solid Waste Management</option>
+                        <option value="9512">9512-Public Administration-Land, Mineral, and Wildlife Conservation</option>
+                        <option value="9531">9531-Public Administration-Housing Programs</option>
+                        <option value="9532">9532-Public Administration-Urban and Community Development</option>
+                        <option value="96">96-Public Administration-Administration of Economic Programs</option>
+                        <option value="9611">9611-Public Administration-Administration of General Economic Programs</option>
+                        <option value="9621">9621-Public Administration-Regulation, Administration of Transportation</option>
+                        <option value="9631">9631-Public Administration-Regulation, Administration of Utilities</option>
+                        <option value="9641">9641-Public Administration-Regulation of Agricultural Marketing</option>
+                        <option value="9651">9651-Public Administration-Regulation, Miscellaneous Commercial Sectors</option>
+                        <option value="9661">9661-Public Administration-Space Research and Technology</option>
+                        <option value="97">97-Public Administration-National Security and International Affairs</option>
+                        <option value="9711">9711-Public Administration-National Security</option>
+                        <option value="9721">9721-Public Administration-International Affairs</option>
+                        <option value="99">99-Public Administration-Nonclassifiable Establishments</option>
+                        <option value="950">0-Healthcare & Life Sciences-Ambulatory Surgery Centers</option>
+                        <option value="951">0-Healthcare & Life Sciences-Clinical Research Organizations (CROs)</option>
+                        <option value="952">0-Healthcare & Life Sciences-Diagnostic Labs</option>
+                        <option value="953">0-Healthcare & Life Sciences-Health Insurance Providers</option>
+                        <option value="954">0-Healthcare & Life Sciences-Hospitals & Health Systems</option>
+                        <option value="955">0-Healthcare & Life Sciences-Medical Device Manufacturers</option>
+                        <option value="956">0-Healthcare & Life Sciences-Nursing Homes & Long-Term Care</option>
+                        <option value="957">0-Healthcare & Life Sciences-Outpatient Clinics</option>
+                        <option value="958">0-Healthcare & Life Sciences-Pharmaceutical Distributors</option>
+                        <option value="959">0-Healthcare & Life Sciences-Pharmaceuticals Manufacturing</option>
+                        <option value="960">0-Healthcare & Life Sciences-Telemedicine Providers</option>
+                        <option value="961">0-Healthcare & Life Sciences-Consulting & Advisory Services</option>
+                        <option value="962">0-Healthcare & Life Sciences-Policy & Research</option>
+                        <option value="963">0-Healthcare & Life Sciences-Data Analytics & Actuarial Services</option>
+                        <option value="964">0-Healthcare & Life Sciences-HealthTech</option>
+                        <option value="965">0-Finance, Insurance, And Real Estate-Private Equity</option>
+                        <option value="966">0-Finance, Insurance, And Real Estate-Holding Company</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Urgency Level *</label>
+                     <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="rush" required>
+                            <span class="radio-custom"></span>
+                            <div><span class="choice-label">Rush (Same Day - Premium Fee)</span></div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="expedited">
+                            <span class="radio-custom"></span>
+                            <div><span class="choice-label">Expedited (24 Hours - Additional Fee)</span></div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="urgency" value="standard" checked>
+                            <span class="radio-custom"></span>
+                            <div><span class="choice-label">Standard (2-3 Business Days)</span></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="nav-button" onclick="prevStep()">&larr; Previous</button>
+                    <button type="button" class="nav-button" onclick="nextStep()">Next &rarr;</button>
+                </div>
+            </section>
+            
+            <section class="form-section" id="section-3">
+                <h2>SECTION 3 OF 3 - CONFIGURATION</h2>
+                <div class="input-group">
+                    <label>Strategic AI Guidance (Optional)</label>
+                    <p class="section-description">The fields below are the most powerful tool for shaping the final report, acting as a direct "steering mechanism" for the AI.</p>
+                </div>
+                <div class="input-group">
+                    <label for="business-outcomes-text">1. The Desired Business Outcome(s)</label>
+                    <span class="description">What specific, measurable successes is the client aiming for?</span>
+                    <div class="choice-container">
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="efficiency"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Increase Operational Efficiency and Reduce Costs</span><span class="choice-description">Target bottlenecks, automate manual work, and improve margins.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="growth"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Accelerate Revenue Growth or Create New Digital Products</span><span class="choice-description">Launch new features, enter new markets, or build new software-based revenue streams.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="cx"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Enhance Customer Experience and Strategic Partnerships</span><span class="choice-description">Improve retention, satisfaction, and the ease of doing business.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="productivity"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Improve Employee Productivity and Enable a Modern Workforce</span><span class="choice-description">Provide better tools, streamline workflows, and enable remote/hybrid work.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="security"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Strengthen Security, Compliance, and Business Resilience</span><span class="choice-description">Harden systems against threats, meet regulatory requirements, and ensure business continuity.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="businessOutcomes" value="data"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Enable Data-Driven Decision-Making with AI and Analytics</span><span class="choice-description">Consolidate data, build BI dashboards, and leverage predictive insights.</span></div></label>
+                        <div class="other-specify-wrapper"><textarea id="business-outcomes-text" name="businessOutcomesOther" class="form-textarea" placeholder="Other (please specify):"></textarea></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="technical-constraints-text">2. The Core Technical Constraint(s)</label>
+                    <span class="description">What are the primary technical barriers holding them back?</span>
+                    <div class="choice-container">
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="legacy"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Outdated or Inefficient Legacy Systems</span><span class="choice-description">Core business runs on old technology that is slow, brittle, or unsupported.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="silos"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Fragmented Systems and Data Silos</span><span class="choice-description">Critical information is trapped in separate systems that don't communicate.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="manual"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">High Degree of Manual Processes and Repetitive Workflows</span><span class="choice-description">Key business processes rely heavily on spreadsheets, email, and manual data entry.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="analytics"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Inability to Access or Analyze Data for Business Intelligence</span><span class="choice-description">Data exists but is inaccessible or untrustworthy, preventing data-driven decision-making.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="scalability"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Scalability and Performance Bottlenecks</span><span class="choice-description">Current infrastructure cannot handle peak loads or support future growth.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="technicalConstraints" value="security"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Security Vulnerabilities or Compliance Gaps</span><span class="choice-description">Existing systems pose a security risk or do not meet necessary industry/regulatory standards.</span></div></label>
+                        <div class="other-specify-wrapper"><textarea id="technical-constraints-text" name="technicalConstraintsOther" class="form-textarea" placeholder="Other (please specify):"></textarea></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="prioritized-focus-text">3. The Prioritized Area of Focus</label>
+                    <span class="description">Which business functions or departments need the most attention first?</span>
+                    <div class="choice-container">
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="cloud"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Cloud Migration Strategy</span><span class="choice-description">Assessing and executing a move from on-premise infrastructure to a cloud environment (Azure, AWS).</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="transformation"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Digital Transformation</span><span class="choice-description">A broad, strategic initiative to fundamentally change how the business operates.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="cost"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Cost Optimization</span><span class="choice-description">Identifying and eliminating inefficiencies in processes and technology to improve margins.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="security"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Security & Compliance</span><span class="choice-description">Hardening systems against cyber threats, ensuring data privacy, and meeting regulatory requirements.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="data"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Data Analytics & AI</span><span class="choice-description">Building a central data platform, creating BI dashboards, and implementing machine learning.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="modernization"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Application Modernization</span><span class="choice-description">Rebuilding or replacing legacy applications with modern, cloud-native solutions.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="automation"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Infrastructure Automation</span><span class="choice-description">Using code to manage and provision IT infrastructure (IaC), enabling faster deployments.</span></div></label>
+                        <label class="choice-item"><input type="checkbox" name="prioritizedFocus" value="analysis"><span class="checkbox-custom"><svg viewBox="0 0 10 8"><path d="M1 4L4 7L9 1" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span><div><span class="choice-title">Competitive Analysis</span><span class="choice-description">Leveraging technology to gain a deeper understanding of the market and competitor strategies.</span></div></label>
+                        <div class="other-specify-wrapper"><textarea id="prioritized-focus-text" name="prioritizedFocusOther" class="form-textarea" placeholder="Other (please specify):"></textarea></div>
+                    </div>
+                </div>
+                <!-- Other input groups for section 3... -->
+                 <div class="form-navigation">
+                    <button type="button" class="nav-button" onclick="prevStep()">&larr; Previous</button>
+                    <!-- UPDATED: SUBMIT BUTTON STRUCTURE -->
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Initiate Research</span>
+                        <span class="button-loader"></span>
+                    </button>
+                </div>
+                <div id="form-feedback"></div>
+            </section>
+        </form>
+    </main>
+   </div>
+</body>
+</html>
